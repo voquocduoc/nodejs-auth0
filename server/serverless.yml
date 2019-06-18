@@ -1,0 +1,49 @@
+service: my-lamdba-based-application
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+
+functions:
+  echo:
+    handler: handler.index
+    events:
+      - http: 
+          path: hello
+          method: get
+          cors: true
+  getOrCreateUser:
+    handler: handler.getOrCreateUser
+    events:
+      - http: 
+          path: getorcreate
+          method: post
+          cors: true
+  getAllVirtuesForUser:
+    handler: handler.getAllVirtuesForUser
+    events:
+      - http: 
+          path: all
+          method: get
+          cors: true
+  addYesToVirtue:
+    handler: handler.addYesToVirtue
+    events:
+      - http: 
+          path: virtue/{id}/yes
+          method: post
+          cors: true
+  addNoToVirtue:
+    handler: handler.addNoToVirtue
+    events:
+      - http: 
+          path: virtue/{id}/no
+          method: post
+          cors: true
+  sendEmail:
+    handler: handler.sendEmail
+    events:
+      - schedule: rate(12 hours)
+      

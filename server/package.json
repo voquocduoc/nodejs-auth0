@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "deploy": "serverless deploy -v",
+    "local": "serverless invoke local"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "date-fns": "^1.29.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongodb": "3.0.1",
+    "serverless-http": "^1.5.3"
+  }
+}
